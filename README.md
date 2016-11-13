@@ -26,17 +26,17 @@
 > Good luck!
 
 # Code explanations
-```javascript 
+`javascript 
       ##Reading Features and ActivityLabels vector
       features <- read.csv("features.txt", sep = "", header = FALSE)[2]
-      activities <- read.csv("activity_labels.txt", sep = "", header = FALSE)```
-
-```javascript 
+      activities <- read.csv("activity_labels.txt", sep = "", header = FALSE)`
+aasd
+````javascript 
       ##Reading Sets
       testSet <- read.csv("test/X_test.txt", sep = "", header = FALSE)
       trainSet <- read.csv("train/X_train.txt", sep = "", header = FALSE)
-      mergedSet <- rbind(testSet,trainSet)```        
-
+      mergedSet <- rbind(testSet,trainSet)````      
+adada
 ```javascript 
       ##Reading Movement
       testMoves <- read.csv("test/Y_test.txt", sep = "", header = FALSE)
