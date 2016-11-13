@@ -1,3 +1,26 @@
+# Scripts that used to create codeBook file called makeCodeBook.R
+make.codeBook <- function(set) {
+      df <- data.frame(
+            row.names = NULL,
+            column.names = names(set),
+            class = sapply(set, class),
+            range = sapply(set, function(x)
+                  if (class(x) == "factor")
+                        paste(levels(x), collapse = " / ")
+                  else if (class(x) == "numeric" ||
+                           class(x) == "integer")
+                        paste(min(x), max(x), sep = "  /  ")
+                  else
+                        class(x)),
+            mean = sapply(set, function(x)
+                  if (class(x) == "numeric")
+                        mean(x)
+                  else
+                        "Not available")
+      )
+      write.table(df, "codeBook.md", sep = " | ")
+}
+
 ##Variable list and properties depends on that
 
 rn  |"column.names" | "class" | "range" | "mean"
