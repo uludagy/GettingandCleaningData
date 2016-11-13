@@ -31,4 +31,11 @@
    features <- read.csv("features.txt", sep = "", header = FALSE)[2]
    activities <- read.csv("activity_labels.txt", sep = "", header = FALSE)
 ```
-asdawd
+aawdawd
+
+```R
+   ##Reading Sets
+   testSet <- read.csv("test/X_test.txt", sep = "", header = FALSE)
+   trainSet <- read.csv("train/X_train.txt", sep = "", header = FALSE)
+   mergedSet <- rbind(testSet,trainSet)        
+```   
