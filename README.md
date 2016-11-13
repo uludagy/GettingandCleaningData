@@ -36,7 +36,7 @@ Reads these two file from **UCI HAR Dataset** and takes sensitive data. For acti
    activities <- read.csv("activity_labels.txt", sep = "", header = FALSE)
 ```
 
-Again reads from same location. Combine test and train set.
+Again reads from same location and combine test and train set with __rbind__ function.
 ```R
    ##Reading Sets
    testSet <- read.csv("test/X_test.txt", sep = "", header = FALSE)
@@ -45,15 +45,42 @@ Again reads from same location. Combine test and train set.
 ```   
 Same exact things with previous step
 ```R
-      ##Reading Movement
-      testMoves <- read.csv("test/Y_test.txt", sep = "", header = FALSE)
-      trainMoves <- read.csv("train/Y_train.txt", sep = "", header = FALSE)
-      mergedMoves <- rbind(testMoves, trainMoves)
+   ##Reading Movement
+   testMoves <- read.csv("test/Y_test.txt", sep = "", header = FALSE)
+   trainMoves <- read.csv("train/Y_train.txt", sep = "", header = FALSE)
+   mergedMoves <- rbind(testMoves, trainMoves)
       
-      ##Reading PersonID
-      testPerson <- read.csv("test/subject_test.txt", sep = "", header = FALSE)
-      trainPerson <- read.csv("train/subject_train.txt", sep = "", header = FALSE)
-      mergedPerson <- rbind(testPerson, trainPerson)
+   ##Reading PersonID
+   testPerson <- read.csv("test/subject_test.txt", sep = "", header = FALSE)
+   trainPerson <- read.csv("train/subject_train.txt", sep = "", header = FALSE)
+   mergedPerson <- rbind(testPerson, trainPerson)
 ```
+Assigns real column attributes(decriptive column names) that is kept in features vector to mergedSet we have formed in previous steps
+After that, select all columns that key values passing through this attributes
+```R
+   ##Extracting columns which includes measurements
+   names(mergedSet) <- features[ ,1]
+   mergedSet <- mergedSet[ grepl("std|mean", names(mergedSet), ignore.case = TRUE) ] 
+```
+Descriptive values for activity columns.
+```R
+   #Descriptive ActivityName analysis
+   mergedMoves <- merge(mergedMoves, activities, by.x = "V1", by.y = "V1")[2]
+   mergedSet <- cbind(mergedPerson, mergedMoves, mergedSet)
+   names(mergedSet)[1:2] <- c("PersonID", "Activities")
+```
+
+Tidying set according to personID and activities
+```R
+   ##Tidying mergedSet
+   group_by(mergedSet, PersonID, Activities) %>%
+         summarise_each(funs(mean))
+```            
+
+
+
+
+
+
 
 
