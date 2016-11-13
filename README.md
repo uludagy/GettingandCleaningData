@@ -1,2 +1,2 @@
-# GettindandCleaningData
+# GettingandCleaningData
 CourseProject
