@@ -55,8 +55,7 @@ Same exact things with previous step
    trainPerson <- read.csv("train/subject_train.txt", sep = "", header = FALSE)
    mergedPerson <- rbind(testPerson, trainPerson)
 ```
-Assigns real column attributes(decriptive column names) that is kept in features vector to mergedSet we have formed in previous steps
-After that, select all columns that key values passing through this attributes
+Assigns real column attributes(decriptive column names) that is kept in features vector to mergedSet we have formed in previous steps. After that, select all columns that key values passing through this attributes
 ```R
    ##Extracting columns which includes measurements
    names(mergedSet) <- features[ ,1]
