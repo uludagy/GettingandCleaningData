@@ -1,4 +1,5 @@
 # Scripts that used to create codeBook file called makeCodeBook.R
+```javascript
 make.codeBook <- function(set) {
       df <- data.frame(
             row.names = NULL,
@@ -20,8 +21,9 @@ make.codeBook <- function(set) {
       )
       write.table(df, "codeBook.md", sep = " | ")
 }
+```
 
-##Variable list and properties depends on that
+## Variable list and properties depends on that
 
 rn  |"column.names" | "class" | "range" | "mean"
 |---|---			|---	  |---		|---   |
