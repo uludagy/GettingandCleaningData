@@ -1,3 +1,5 @@
+##Variable list and properties depends on that
+
 rn  |"column.names" | "class" | "range" | "mean"
 |---|---			|---	  |---		|---   |
 "1" | "PersonID" | "integer" | "1  /  30" | "Not available"
