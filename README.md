@@ -26,16 +26,34 @@
 > Good luck!
 
 # Code explanations
+
+*We applied all same read format to the files. We used **sep=""** cause given file format seperated like that. And also **header=FALSE**, just dont want to lose first row of data. If its true, first row would be column names which we dont want to.
+
+Reads these two file from **UCI HAR Dataset** and takes sensitive data. For activitiy labels first column includes rownumber which is unneccesary. 
 ```R 
    ##Reading Features and ActivityLabels vector
    features <- read.csv("features.txt", sep = "", header = FALSE)[2]
    activities <- read.csv("activity_labels.txt", sep = "", header = FALSE)
 ```
-aawdawd
 
+Again reads from same location. Combine test and train set.
 ```R
    ##Reading Sets
    testSet <- read.csv("test/X_test.txt", sep = "", header = FALSE)
    trainSet <- read.csv("train/X_train.txt", sep = "", header = FALSE)
    mergedSet <- rbind(testSet,trainSet)        
 ```   
+Same exact things with previous step
+```R
+      ##Reading Movement
+      testMoves <- read.csv("test/Y_test.txt", sep = "", header = FALSE)
+      trainMoves <- read.csv("train/Y_train.txt", sep = "", header = FALSE)
+      mergedMoves <- rbind(testMoves, trainMoves)
+      
+      ##Reading PersonID
+      testPerson <- read.csv("test/subject_test.txt", sep = "", header = FALSE)
+      trainPerson <- read.csv("train/subject_train.txt", sep = "", header = FALSE)
+      mergedPerson <- rbind(testPerson, trainPerson)
+```
+
+
