@@ -24,3 +24,8 @@
 > 5. Creates a second, independent tidy data set with the average of each variable for each activity and each subject. 
 > 
 > Good luck!
+
+# Code explanations
+```##Reading Features and ActivityLabels vector
+   features <- read.csv("features.txt", sep = "", header = FALSE)[2]
+      activities <- read.csv("activity_labels.txt", sep = "", header = FALSE)```
