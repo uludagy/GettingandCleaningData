@@ -27,7 +27,7 @@
 
 # Code explanations
 
-*We applied all same read format to the files. We used __sep=""__ cause given file format seperated like that. And also **header=FALSE**, just dont want to lose first row of data. If its true, first row would be column names which we dont want to.
+*We applied all same read format to the files. We used __sep=""__ cause given file format seperated like that. And also __header=FALSE__, just dont want to lose first row of data. If its true, first row would be column names which we dont want to.
 
 Reads these two file from **UCI HAR Dataset** and takes sensitive data. For activitiy labels first column includes rownumber which is unneccesary. 
 ```R 
